@@ -1,0 +1,16 @@
+
+{% extends "base.html" %}
+
+   {% block content %}
+
+   <div class="global-container">
+	<div class="card login-form">
+	<div class="card-body">
+		<h3 class="card-title text-center">Welcome, {{request.user.username}}</h3>
+		<a href="/register" class="btn btn-success text-center">! Register </a>
+		<a href="/admin" class="btn btn-success text-start">! Admin Page </a>
+		</div>
+	</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+
+{% extends "base.html" %}
+
+   {% block content %}
+
+   <div class="global-container">
+	<div class="card login-form">
+	<div class="card-body">
+		<h3 class="card-title text-center">Log in to Django</h3>
+
+		{% if messages %}
+		 {% for message in messages %}
+			    <div class="alert alert.info">
+				  <h5>{{ message }}</h5> 
+				 <!-- views'teki "! Email Your account has been verified" text arayüze mesaj olarak döndürüyor -->
+			    </div>
+			     {% endfor %}
+		
+		    {% endif %}
+
+		<div class="card-text text-center">
+			<!--
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+			<form method="post">
+				{% csfr_token %}
+				<!-- to error: add class "has-danger" -->
+				<div class="form-group">
+					<div class="text-end">
+					<label for="exampleInputEmail1"><h6>Username</h6></label>
+					<input type="text" name="username" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
+				  </div> 
+				  </div> 
+				<div class="form-group text-center">
+					<div class="text-end">
+					<label for="exampleInputPassword1"><h6>Password</h6></label>
+					<input type="password" class="form-control form-control-sm" id="exampleInputPassword1">
+					<a href="#" style="float:right;font-size:12px;">?Forgot password</a>
+					
+				</div>
+				</div>
+				<button type="submit" class="btn btn-primary btn-block text-center">Sign in</button>
+				
+				<div class="sign-up">
+					Don't have an account? <a href="{% url 'register_attempt' %}">Create one</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+
+{% endblock %}
